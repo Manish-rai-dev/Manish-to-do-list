@@ -10,46 +10,46 @@ todoList.addEventListener('click', deleteCheck);
 
 
 
-function addTodo(event) {
-  console.log("hello");
+//to get the value inputs
 
-  
+function addTodo(event) {
+  //console.log("hello");
   event.preventDefault();
-  const todoDiv = document.createElement('div');
+  const todoDiv = document.createElement('div');   //creating a div
   todoDiv.classList.add('todo');
-  const newTodo = document.createElement('li');
+  const newTodo = document.createElement('li'); // creating a list
   newTodo.innerText = todoInput.value;
   newTodo.classList.add('todo-item');
   
-  todoDiv.appendChild(newTodo);
+  todoDiv.appendChild(newTodo);   // making the li as the child of the div
   
 saveLocalTodos(todoInput.value);
 
 
-  const completedButton = document.createElement('button');
-  completedButton.innerHTML = '<i class="fa fa-check"></i>';
+  const completedButton = document.createElement('button');   // creating a button
+  completedButton.innerHTML = '<i class="fa fa-check"></i>';   //adding the fontawsome icon
   completedButton.classList.add("complete-button");
-  todoDiv.appendChild(completedButton);
+  todoDiv.appendChild(completedButton);                       // making the button a child of div
 
-  const trashButton = document.createElement('button');
-  trashButton.innerHTML = '<i class="fa fa-trash"></i>';
-  trashButton.classList.add('trash-button');
-  todoDiv.appendChild(trashButton);
-  todoList.appendChild(todoDiv);
-  todoInput.value = "";
+  const trashButton = document.createElement('button');        //creating a button
+  trashButton.innerHTML = '<i class="fa fa-trash"></i>';       // adding the fontawsome icon
+  trashButton.classList.add('trash-button');                   //giving it a class name
+  todoDiv.appendChild(trashButton);                           //making button a child of div
+  todoList.appendChild(todoDiv);                              //making the created div a child of UL
+  todoInput.value = "";                                       //making the value to null to reset it.
 }
 
 function deleteCheck(event) {
-  const item = event.target;
+  const item = event.target;                              //ignite the div
   
-  if (item.classList[0] === 'trash-button') {
-    const todo = item.parentElement;
-    todo.remove(); 
+  if (item.classList[0] === 'trash-button') {           //does trash button clicked
+    const todo = item.parentElement;               //then in this case make todo equals to the parent of div that is UL
+    todo.remove();                                      //remove the UL
   }
 
-  if (item.classList[0] === "complete-button") {
-    const todo = item.parentElement;
-    todo.classList.toggle("completed");
+  if (item.classList[0] === "complete-button") {   //if the checked button is clicked
+    const todo = item.parentElement;                // make the todo to UL
+    todo.classList.toggle("completed");             // get the styling of completed class
   }
 
 }
@@ -132,6 +132,9 @@ clear.addEventListener('click', function()
 localStorage.clear();
 location.reload();
 });
+
+
+
 
 const dataElement = document.getElementById("date");
 let options={weekday: 'long', month: 'short', day:'numeric'};
