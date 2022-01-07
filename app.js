@@ -20,11 +20,16 @@ function addTodo(event) {
   const newTodo = document.createElement('li'); // creating a list
   newTodo.innerText = todoInput.value;
   newTodo.classList.add('todo-item');
-  
-  todoDiv.appendChild(newTodo);   // making the li as the child of the div
-  
-saveLocalTodos(todoInput.value);
-
+    todoDiv.appendChild(newTodo);   // making the li as the child of the div
+if(todoInput.value.length!== 0)
+{
+  saveLocalTodos(todoInput.value);
+}
+else
+{
+  alert("Nothing has been inputted");
+  return;
+}
 
   const completedButton = document.createElement('button');   // creating a button
   completedButton.innerHTML = '<i class="fa fa-check"></i>';   //adding the fontawsome icon
@@ -40,6 +45,7 @@ saveLocalTodos(todoInput.value);
 }
 
 function deleteCheck(event) {
+  
   const item = event.target;                              //ignite the div
   
   if (item.classList[0] === 'trash-button') {           //does trash button clicked
@@ -49,10 +55,16 @@ function deleteCheck(event) {
 
   if (item.classList[0] === "complete-button") {   //if the checked button is clicked
     const todo = item.parentElement;                // make the todo to UL
+    
     todo.classList.toggle("completed");             // get the styling of completed class
+ 
   }
 
 }
+
+
+
+// function to save the todo elements locally in the browser 
 
 
 function saveLocalTodos(todo)
@@ -69,12 +81,12 @@ function saveLocalTodos(todo)
   todos.push(todo);
   window.localStorage.setItem("todos", JSON.stringify(todos));
 
-
 }
+
+
 
 function getTodos()
 {
-
 
   let todos;
   if(window.localStorage.getItem("todos") === null)
@@ -94,8 +106,6 @@ todos.forEach(function(todo)
   newTodo.classList.add('todo-item');
   
   todoDiv.appendChild(newTodo);
-
-
   const completedButton = document.createElement('button');
   completedButton.innerHTML = '<i class="fa fa-check"></i>';
   completedButton.classList.add("complete-button");
@@ -107,7 +117,11 @@ todos.forEach(function(todo)
   todoDiv.appendChild(trashButton);
   todoList.appendChild(todoDiv);
 });
+window.localStorage.setItem("todos", JSON.stringify(todos));
+
 }
+
+
 
 function removeLocalTodos(todo)
 {
@@ -126,6 +140,9 @@ window.localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 
+
+//the clear icon above the date section
+
 const clear = document.querySelector(".clear");
 clear.addEventListener('click', function()
 {
@@ -135,8 +152,15 @@ location.reload();
 
 
 
+//TO show up the current date
+
+
 
 const dataElement = document.getElementById("date");
 let options={weekday: 'long', month: 'short', day:'numeric'};
 let today = new Date();
 dataElement.innerHTML = today.toLocaleDateString("en-US",options);
+
+
+
+// todo.classList.toggle("completed");             

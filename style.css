@@ -12,15 +12,20 @@
 
   body 
   {
-      background-image: linear-gradient(120deg,rgb(0, 255, 115), rgb(132, 0, 255) );
+      background-color: blanchedalmond ;
+      /* background-image: linear-gradient(120deg,rgb(0, 255, 115), rgb(132, 0, 255) ); */
       color: white;
        font-family: "poppins";
        min-height: 100vh;
 
   }
+  header{
+      color: black;
+  }
    
   form
   {
+      
       min-height: 20vh;
       display: flex;
       justify-content: center;
@@ -110,7 +115,7 @@
    }
  .todo,.todo-span
    {
-       
+    background-image: linear-gradient(120deg,rgb(0, 255, 115), rgb(132, 0, 255) );
 
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
       transition: .5s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.5s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
@@ -126,8 +131,7 @@
  
    .col-lg-3
    {
-    background-image: linear-gradient(120deg,rgb(132, 0, 255), rgb(115,255,0) );
-       
+    background-image: linear-gradient(120deg,rgb(0, 255, 115), rgb(132, 0, 255) );
     justify-content: center;
     align-items: center;
     width: 55vh;
@@ -140,11 +144,13 @@
     box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
     transition: .5s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.5s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 cursor: pointer;
+
+
        
    }
 
 
-   .col-lg-3:hover
+   .col-lg-3:hover,.listinput:hover
    {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
@@ -165,8 +171,34 @@ text-align: right;
     }
     .todo-input
     {
+        /* background-image: linear-gradient(120deg,rgb(0, 255, 115), rgb(132, 0, 255) ); */
         width: 40vw;
+        color: white;
+    }
+    .todo
+    {
+        color: white;
     }
 
 
-   
+   .listinput{
+    background-image: linear-gradient(120deg,rgb(0, 255, 115), rgb(132, 0, 255) );
+       width: 45vw;
+       height: 30vw;
+       margin-left: 25%;
+       border-radius: 5%;
+       box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .5s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.5s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+cursor: pointer;
+
+   }
+
+@media (max-width: 700px) {
+    .listinput
+    {
+        margin-left: 0;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+    }
+}
