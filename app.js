@@ -47,21 +47,18 @@ else
 function deleteCheck(event) {
   
   const item = event.target;                              //ignite the div
-  
   if (item.classList[0] === 'trash-button') {           //does trash button clicked
     const todo = item.parentElement;               //then in this case make todo equals to the parent of div that is UL
     todo.remove();                                      //remove the UL
   }
-
-  if (item.classList[0] === "complete-button") {   //if the checked button is clicked
-    const todo = item.parentElement;                // make the todo to UL
+  if (item.classList[0] === 'complete-button')       //if the checked button is clicked
+   {  
     
-    todo.classList.toggle("completed");             // get the styling of completed class
- 
+    const todo = item.parentElement;                                      // make the todo to UL
+    todo.classList.add('completed');                                  // get the styling of completed class
   }
 
 }
-
 
 
 // function to save the todo elements locally in the browser 
